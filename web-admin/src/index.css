@@ -1,18 +1,19 @@
-/* ── BLADE Design System ───────────────────────────────────────────────── */
+/* ── SAMAY Design System ───────────────────────────────────────────────── */
 :root {
-  --bg:       #0A0A0B;
-  --surface:  #131315;
-  --card:     #1A1A1D;
-  --border:   #222227;
-  --gold:     #C9972E;
-  --gold-hi:  #E5B84A;
-  --gold-lo:  rgba(201,151,46,0.12);
-  --text:     #EDECEA;
-  --sub:      #868690;
-  --mute:     #333338;
-  --green:    #4DB87A;
-  --red:      #D95E5E;
-  --blue:     #5B8FD4;
+  --bg:       #FFFFFF;
+  --surface:  #F4F5F7;
+  --card:     #FFFFFF;
+  --border:   #E0E2E8;
+  --gold:     #B8860B;
+  --gold-hi:  #D4A017;
+  --gold-lo:  rgba(184,134,11,0.10);
+  --text:     #1A1A1A;
+  --sub:      #6B6B75;
+  --mute:     #D0D2D8;
+  --green:    #2E7D32;
+  --green-btn:#3A8C3F;
+  --red:      #C0392B;
+  --blue:     #1565C0;
   --sidebar:  200px;
 }
 
@@ -66,6 +67,7 @@ body {
   font-weight: 900;
   letter-spacing: 0.25em;
   text-transform: uppercase;
+  color: var(--text);
 }
 .sidebar-brand .logo-text em { font-style: normal; color: var(--gold); }
 
@@ -83,7 +85,7 @@ body {
   transition: color 0.15s, background 0.15s;
   border-left: 2px solid transparent;
 }
-.nav-item:hover  { color: var(--text); background: var(--card); }
+.nav-item:hover  { color: var(--text); background: var(--border); }
 .nav-item.active { color: var(--gold); border-left-color: var(--gold); background: var(--gold-lo); }
 .nav-item svg    { width: 16px; height: 16px; flex-shrink: 0; }
 
@@ -104,7 +106,7 @@ body {
   align-items: center;
   justify-content: space-between;
 }
-.topbar-title { font-size: 1rem; font-weight: 800; letter-spacing: -0.02em; }
+.topbar-title { font-size: 1rem; font-weight: 800; letter-spacing: -0.02em; color: var(--text); }
 .topbar-sub   { font-size: 0.72rem; color: var(--sub); margin-top: 1px; }
 
 /* ── Cards ── */
@@ -136,9 +138,9 @@ body {
   padding: 1.5rem;
   transition: background 0.15s;
 }
-.stat-card:hover { background: var(--card); }
+.stat-card:hover { background: #ECEEF2; }
 .stat-label { font-size: 0.63rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sub); margin-bottom: 0.5rem; }
-.stat-value { font-size: 2rem; font-weight: 900; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
+.stat-value { font-size: 2rem; font-weight: 900; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; color: var(--text); }
 .stat-value.gold  { color: var(--gold); }
 .stat-value.green { color: var(--green); }
 .stat-value.red   { color: var(--red); }
@@ -157,15 +159,17 @@ th {
   text-transform: uppercase;
   color: var(--sub);
   white-space: nowrap;
+  background: var(--surface);
 }
 td {
   padding: 0.75rem 1rem;
   font-size: 0.82rem;
   border-bottom: 1px solid var(--border);
   vertical-align: middle;
+  color: var(--text);
 }
 tr:last-child td { border-bottom: none; }
-tr:hover td { background: var(--card); }
+tr:hover td { background: var(--surface); }
 
 /* ── Badges ── */
 .badge {
@@ -201,18 +205,20 @@ tr:hover td { background: var(--card); }
 }
 .btn:hover    { opacity: 0.85; }
 .btn:disabled { opacity: 0.4; cursor: not-allowed; }
-.btn-gold     { background: var(--gold); color: #0A0A0B; }
-.btn-green    { background: var(--green); color: #0A0A0B; }
+.btn-gold     { background: var(--gold); color: #fff; }
+.btn-green    { background: var(--green); color: #fff; }
 .btn-red      { background: var(--red); color: #fff; }
 .btn-ghost    { background: transparent; border: 1px solid var(--border); color: var(--sub); }
 .btn-sm       { font-size: 0.63rem; padding: 0.28rem 0.65rem; }
+/* Login submit button — verde hoja */
+.btn-login    { background: var(--green-btn); color: #fff; }
 
 /* ── Forms ── */
 .form-group   { margin-bottom: 1.25rem; }
 .form-label   { display: block; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sub); margin-bottom: 0.5rem; }
 .form-input {
   width: 100%;
-  background: var(--card);
+  background: var(--bg);
   border: 1px solid var(--border);
   color: var(--text);
   padding: 0.6rem 0.85rem;
@@ -228,22 +234,23 @@ tr:hover td { background: var(--card); }
 /* ── Modal ── */
 .modal-backdrop {
   position: fixed; inset: 0;
-  background: rgba(0,0,0,0.75);
+  background: rgba(0,0,0,0.35);
   display: flex; align-items: center; justify-content: center;
   z-index: 200;
 }
 .modal {
-  background: var(--surface);
+  background: var(--bg);
   border: 1px solid var(--border);
   width: 100%;
   max-width: 480px;
   padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
 }
 .modal-header {
   display: flex; align-items: center; justify-content: space-between;
   margin-bottom: 1.5rem;
 }
-.modal-title { font-size: 1rem; font-weight: 800; letter-spacing: -0.02em; }
+.modal-title { font-size: 1rem; font-weight: 800; letter-spacing: -0.02em; color: var(--text); }
 .modal-close { background: none; border: none; color: var(--sub); cursor: pointer; font-size: 1.2rem; }
 
 /* ── Login ── */
@@ -252,14 +259,15 @@ tr:hover td { background: var(--card); }
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--bg);
+  background: var(--surface);
 }
 .login-box {
   width: 100%;
   max-width: 380px;
-  background: var(--surface);
+  background: var(--bg);
   border: 1px solid var(--border);
   padding: 2.5rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
 }
 .login-brand {
   text-align: center;
@@ -270,6 +278,7 @@ tr:hover td { background: var(--card); }
   font-weight: 900;
   letter-spacing: 0.3em;
   text-transform: uppercase;
+  color: var(--text);
 }
 .login-brand .name em { font-style: normal; color: var(--gold); }
 .login-brand .sub { font-size: 0.7rem; color: var(--sub); margin-top: 0.3rem; letter-spacing: 0.15em; text-transform: uppercase; }
@@ -302,11 +311,11 @@ tr:hover td { background: var(--card); }
   border: 1px solid var(--border);
 }
 .barber-card {
-  background: var(--surface);
+  background: var(--bg);
   padding: 1.5rem;
   transition: background 0.15s;
 }
-.barber-card:hover { background: var(--card); }
+.barber-card:hover { background: var(--surface); }
 .barber-avatar {
   width: 48px; height: 48px;
   border-radius: 50%;
@@ -316,7 +325,7 @@ tr:hover td { background: var(--card); }
   font-size: 1rem; font-weight: 900; color: var(--gold);
   margin-bottom: 0.75rem;
 }
-.barber-name { font-size: 0.9rem; font-weight: 800; margin-bottom: 0.2rem; }
+.barber-name { font-size: 0.9rem; font-weight: 800; margin-bottom: 0.2rem; color: var(--text); }
 .barber-email { font-size: 0.72rem; color: var(--sub); }
 .barber-phone { font-size: 0.72rem; color: var(--sub); }
 

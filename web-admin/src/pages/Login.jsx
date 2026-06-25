@@ -28,15 +28,15 @@ export default function Login() {
       <div className="login-box">
         <div className="login-brand">
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '0.75rem' }}>
-            <svg width="36" height="36" viewBox="0 0 30 30" fill="none">
-              <path d="M5 7 L21 7 L25 15 L21 23 L5 23 Z" fill="rgba(201,151,46,0.12)" stroke="#C9972E" strokeWidth="1.5"/>
-              <line x1="5" y1="15" x2="25" y2="15" stroke="#C9972E" strokeWidth="0.9" opacity="0.6"/>
-              <circle cx="9" cy="15" r="2.2" fill="#C9972E"/>
-              <line x1="11" y1="15" x2="25" y2="15" stroke="#C9972E" strokeWidth="1.4"/>
+            <svg width="38" height="38" viewBox="0 0 38 38" fill="none">
+              <circle cx="19" cy="19" r="18" fill="rgba(184,134,11,0.08)" stroke="#B8860B" strokeWidth="1.5"/>
+              <path d="M10 13 Q19 8 28 13 L28 25 Q19 30 10 25 Z" fill="rgba(184,134,11,0.15)" stroke="#B8860B" strokeWidth="1.2"/>
+              <line x1="10" y1="19" x2="28" y2="19" stroke="#B8860B" strokeWidth="1"/>
+              <circle cx="19" cy="19" r="2.5" fill="#B8860B"/>
             </svg>
           </div>
-          <div className="name">BL<em>A</em>DE</div>
-          <div className="sub">Panel de Administración</div>
+          <div className="name">SAM<em>A</em>Y</div>
+          <div className="sub">Barbería &amp; Studio · Panel Administrativo</div>
         </div>
 
         <form onSubmit={submit}>
@@ -45,7 +45,7 @@ export default function Login() {
             <input
               type="email"
               className="form-input"
-              placeholder="admin@blade.com"
+              placeholder="correo@ejemplo.com"
               value={form.email}
               onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
               required
@@ -65,16 +65,14 @@ export default function Login() {
 
           {error && <p className="form-error" style={{ marginBottom: '1rem' }}>{error}</p>}
 
-          <button className="btn btn-gold" style={{ width: '100%', justifyContent: 'center' }} disabled={loading}>
+          <button
+            className="btn btn-login"
+            style={{ width: '100%', justifyContent: 'center', padding: '0.65rem', fontSize: '0.78rem' }}
+            disabled={loading}
+          >
             {loading ? 'Ingresando...' : 'Ingresar'}
           </button>
         </form>
-
-        <div style={{ marginTop: '1.5rem', padding: '1rem', background: 'var(--card)', borderLeft: '2px solid var(--gold)' }}>
-          <p style={{ fontSize: '0.65rem', color: 'var(--sub)', marginBottom: '0.4rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>Credenciales demo</p>
-          <p style={{ fontSize: '0.72rem', color: 'var(--text)' }}>admin@blade.com / Admin123!</p>
-          <p style={{ fontSize: '0.72rem', color: 'var(--sub)' }}>jorge@blade.com / Barber123!</p>
-        </div>
       </div>
     </div>
   );

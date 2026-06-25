@@ -20,7 +20,7 @@ const PAGE_TITLES = {
 export default function Layout() {
   const { user, logout } = useAuth();
   const location = useLocation();
-  const page = PAGE_TITLES[location.pathname] || { title: 'BLADE', sub: '' };
+  const page = PAGE_TITLES[location.pathname] || { title: 'SAMAY', sub: '' };
 
   const [toast, setToast] = useState(null);
 
@@ -41,7 +41,7 @@ export default function Layout() {
       <aside className="sidebar">
         <div className="sidebar-brand">
           <div className="logo-mark" />
-          <span className="logo-text">BL<em>A</em>DE</span>
+          <span className="logo-text">SAM<em>A</em>Y</span>
         </div>
 
         <nav className="sidebar-nav">
