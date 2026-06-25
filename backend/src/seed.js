@@ -8,7 +8,6 @@
  */
 require('dotenv').config();
 const mongoose  = require('mongoose');
-const bcrypt    = require('bcryptjs');
 const User         = require('./models/User');
 const Service      = require('./models/Service');
 const Availability = require('./models/Availability');
@@ -117,8 +116,7 @@ async function seed() {
       if (u.role === 'barber') barberIds.push(exists._id);
       continue;
     }
-    const hashed = await bcrypt.hash(u.password, 12);
-    const user = await User.create({ ...u, password: hashed });
+    const user = await User.create({ ...u });
     console.log(`  ✅ ${u.role.padEnd(6)} ${u.name} — ${u.email} / ${u.password}`);
     if (u.role === 'barber') barberIds.push(user._id);
   }
