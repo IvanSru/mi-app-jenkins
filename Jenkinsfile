@@ -5,6 +5,11 @@ pipeline {
         nodejs 'NodeJS-20'
     }
 
+    triggers {
+        // Revisa GitHub cada 5 minutos; si hay commits nuevos, dispara el pipeline
+        pollSCM('H/5 * * * *')
+    }
+
     environment {
         APP_DIR    = 'backend'
         APP_NAME   = 'blade-backend'
