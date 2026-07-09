@@ -17,7 +17,7 @@ export default function Login() {
       await login(form.email, form.password);
       navigate('/dashboard');
     } catch (err) {
-      setError(err.response?.data?.message || 'Error al iniciar sesión');
+      setError(err.response?.data?.message || 'Correo o contraseña incorrectos');
     } finally {
       setLoading(false);
     }
@@ -25,54 +25,76 @@ export default function Login() {
 
   return (
     <div className="login-page">
-      <div className="login-box">
-        <div className="login-brand">
-          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '0.75rem' }}>
-            <svg width="38" height="38" viewBox="0 0 38 38" fill="none">
-              <circle cx="19" cy="19" r="18" fill="rgba(184,134,11,0.08)" stroke="#B8860B" strokeWidth="1.5"/>
-              <path d="M10 13 Q19 8 28 13 L28 25 Q19 30 10 25 Z" fill="rgba(184,134,11,0.15)" stroke="#B8860B" strokeWidth="1.2"/>
-              <line x1="10" y1="19" x2="28" y2="19" stroke="#B8860B" strokeWidth="1"/>
-              <circle cx="19" cy="19" r="2.5" fill="#B8860B"/>
-            </svg>
-          </div>
-          <div className="name">SAM<em>A</em>Y</div>
-          <div className="sub">Barbería &amp; Studio · Panel Administrativo</div>
+      {/* ── Panel izquierdo — identidad ── */}
+      <div className="login-panel-left">
+        <div className="brand-logo">SAM<em>A</em>Y</div>
+        <div className="brand-tag">Barbería &amp; Studio</div>
+        <div className="brand-desc">
+          Gestiona tu barbería con precisión. Citas, servicios y equipo en un solo lugar.
         </div>
+        <div className="brand-pills">
+          {['Corte', 'Barba', 'Manicure', 'Pedicure', 'Tinte', 'Keratina'].map(s => (
+            <span key={s} className="pill">{s}</span>
+          ))}
+        </div>
+      </div>
 
-        <form onSubmit={submit}>
-          <div className="form-group">
-            <label className="form-label">Email</label>
-            <input
-              type="email"
-              className="form-input"
-              placeholder="correo@ejemplo.com"
-              value={form.email}
-              onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label className="form-label">Contraseña</label>
-            <input
-              type="password"
-              className="form-input"
-              placeholder="••••••••"
-              value={form.password}
-              onChange={e => setForm(f => ({ ...f, password: e.target.value }))}
-              required
-            />
-          </div>
+      {/* ── Panel derecho — formulario ── */}
+      <div className="login-panel-right">
+        <div className="login-box">
+          <div className="form-title">Bienvenido</div>
+          <div className="form-sub">Ingresa a tu panel administrativo</div>
 
-          {error && <p className="form-error" style={{ marginBottom: '1rem' }}>{error}</p>}
+          <form onSubmit={submit}>
+            <div className="form-group">
+              <label className="form-label">Correo electrónico</label>
+              <input
+                type="email"
+                className="form-input"
+                placeholder="correo@ejemplo.com"
+                value={form.email}
+                onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
+                required
+                autoComplete="email"
+              />
+            </div>
+            <div className="form-group">
+              <label className="form-label">Contraseña</label>
+              <input
+                type="password"
+                className="form-input"
+                placeholder="••••••••"
+                value={form.password}
+                onChange={e => setForm(f => ({ ...f, password: e.target.value }))}
+                required
+                autoComplete="current-password"
+              />
+            </div>
 
-          <button
-            className="btn btn-login"
-            style={{ width: '100%', justifyContent: 'center', padding: '0.65rem', fontSize: '0.78rem' }}
-            disabled={loading}
-          >
-            {loading ? 'Ingresando...' : 'Ingresar'}
-          </button>
-        </form>
+            {error && (
+              <div style={{
+                background: '#FEE2E2',
+                border: '1px solid #FCA5A5',
+                color: '#991B1B',
+                fontSize: '0.75rem',
+                fontWeight: 600,
+                padding: '0.6rem 0.85rem',
+                marginBottom: '1rem',
+                borderRadius: '2px',
+              }}>
+                {error}
+              </div>
+            )}
+
+            <button
+              className="btn btn-login"
+              style={{ width: '100%', justifyContent: 'center' }}
+              disabled={loading}
+            >
+              {loading ? 'Verificando…' : 'Ingresar al panel'}
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );

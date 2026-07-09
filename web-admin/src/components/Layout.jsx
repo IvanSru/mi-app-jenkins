@@ -75,11 +75,11 @@ export default function Layout() {
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
             {toast && (
-              <div style={{ background: 'var(--gold-lo)', border: '1px solid var(--gold)', padding: '0.4rem 0.85rem', fontSize: '0.72rem', color: 'var(--gold)' }}>
+              <div style={{ background: 'var(--emerald-lo)', border: '1px solid var(--emerald)', padding: '0.4rem 0.85rem', fontSize: '0.72rem', color: '#14532D', borderRadius: '2px' }}>
                 🔔 {toast}
               </div>
             )}
-            <div style={{ width: 32, height: 32, background: 'var(--gold-lo)', border: '1px solid var(--gold)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.7rem', fontWeight: 900, color: 'var(--gold)' }}>
+            <div style={{ width: 32, height: 32, background: 'var(--emerald-lo)', border: '2px solid var(--emerald)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.68rem', fontWeight: 900, color: 'var(--forest)' }}>
               {initials}
             </div>
           </div>
