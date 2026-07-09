@@ -41,7 +41,7 @@ export default function Layout() {
       <aside className="sidebar">
         <div className="sidebar-brand">
           <div className="logo-mark" />
-          <span className="logo-text">SAM<em>A</em>Y</span>
+          <span className="logo-text">SAMAY<em> Sharp</em></span>
         </div>
 
         <nav className="sidebar-nav">

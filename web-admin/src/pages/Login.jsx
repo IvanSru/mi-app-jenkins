@@ -27,10 +27,10 @@ export default function Login() {
     <div className="login-page">
       {/* ── Panel izquierdo — identidad ── */}
       <div className="login-panel-left">
-        <div className="brand-logo">SAM<em>A</em>Y</div>
-        <div className="brand-tag">Barbería &amp; Studio</div>
+        <div className="brand-logo">SAMAY<em> Sharp</em></div>
+        <div className="brand-tag">Barbería · Grooming · Studio</div>
         <div className="brand-desc">
-          Gestiona tu barbería con precisión. Citas, servicios y equipo en un solo lugar.
+          Donde la precisión se convierte en arte. Gestiona tu barbería de élite en un solo lugar.
         </div>
         <div className="brand-pills">
           {['Corte', 'Barba', 'Manicure', 'Pedicure', 'Tinte', 'Keratina'].map(s => (
